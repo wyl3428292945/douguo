@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机号注册 - 豆果美食</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/registered.min.css">
+    <link rel="icon" href="https://cp1.douguo.com/static/nweb/images/favicon.ico?v=1912" type="image/x-icon">
+    <script src="./js/axios.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a href="index.html"></a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="wrap">
+            <div class="con-top">
+                <h2>新用户注册</h2>
+                <p>已有账号 , <a href="login.html">直接登录></a></p>
+            </div>
+            <div class="form">
+                <div>
+                    <input type="text" placeholder="请输入手机号" id="tel">
+                    <span class="test">请输入手机号</span>
+                </div>
+                <p class="hint">输入常用的手机号，便于登录和找回密码</p>
+                <div>
+                    <input type="text" placeholder="请输入昵称" id='user'>
+                    <span class="test">昵称已存在</span>
+                </div>
+                <p class="hint">中英文均可，最多16个字喔~</p>
+                <div>
+                    <input type="password" placeholder="请输入密码" id='pwd'>
+                    <span class="test">请输入密码</span>
+                </div>
+                <p class="hint">密码长度为6-20位，不能含有空格</p>
+                <div>
+                    <input type="password" placeholder="确认密码" id='confirm'>
+                    <span class="test"></span>
+                </div>
+                <p class="hint">再输入一次密码</p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/registered.js"></script>
+</body>
+</html>

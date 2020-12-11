@@ -1,0 +1,111 @@
+body {
+  background: #f8f8f7;
+}
+
+body, button, input, select, textarea {
+  font: 12px Tahoma, Geneva, sans-serif, "Microsoft Yahei";
+  color: #333;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+.wrap {
+  width: 940px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #f3f3f3;
+  margin-bottom: 40px;
+}
+
+header .wrap {
+  height: 90px;
+  overflow: hidden;
+}
+
+header a {
+  display: block;
+  width: 180px;
+  height: 54px;
+  margin: 20px 0 0 15px;
+  background: url("../images/logo_lo.png") no-repeat 0 0;
+}
+
+.content .wrap {
+  background-color: #fff;
+}
+
+.content .wrap .con-top {
+  height: 58px;
+  border-bottom: 1px solid #f8f8f7;
+  position: relative;
+}
+
+.content .wrap .con-top h2 {
+  position: absolute;
+  left: 32px;
+  line-height: 58px;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.content .wrap .con-top p {
+  position: absolute;
+  right: 18px;
+  line-height: 58px;
+  font-size: 16px;
+}
+
+.content .wrap .con-top p a {
+  color: #3ea000;
+}
+
+.content .wrap .form {
+  width: 610px;
+  margin: 30px 0 0 320px;
+}
+
+.content .wrap .form > div {
+  margin-bottom: 10px;
+}
+
+.content .wrap .form input {
+  width: 300px;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: middle;
+  padding: 5px 0px 5px 10px;
+  font-size: 14px;
+  border: 1px solid #deded3;
+  background: #fff;
+}
+
+.content .wrap .form .hint {
+  height: 22px;
+  line-height: 22px;
+  color: #999;
+  visibility: hidden;
+}
+
+.content .wrap .form .hint:first-of-type {
+  visibility: visible;
+}
+
+.content .wrap .form .test {
+  color: #ff0000;
+  display: inline-block;
+  min-width: 22px;
+  min-height: 22px;
+  margin: 4px 0 0 20px;
+  visibility: hidden;
+  vertical-align: middle;
+}
