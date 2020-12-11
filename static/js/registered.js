@@ -13,28 +13,44 @@ ipt.forEach((item,index)=>{
         hint[index].style.visibility = 'visible'
     }
 })
-window.onload = function(){
-    axios.get()
-}
 tel.onblur = function(){
-    this.removeAttribute("style");
-    this.nextElementSibling.style.visibility = 'visible'
-    if(!this.value){
-        this.nextElementSibling.style.background=""
-        this.nextElementSibling.innerHTML = '请输入手机号'
-    }else if(!telRE.test(this.value)){
-        this.nextElementSibling.style.background=""
-        this.nextElementSibling.innerHTML = '手机号格式错误'
-    }else{
-        this.nextElementSibling.innerHTML=""
-        this.nextElementSibling.style.background = "url('./images/loicon.png') no-repeat -2px -21px";
-    }
+    tel.removeAttribute("style");
+    tel.nextElementSibling.style.visibility = 'visible'
+    axios.get('http://localhost:3000/tel?tel='+tel.value).then(res=>{
+        if(res.data[0]){
+            tel.nextElementSibling.style.background=""
+            tel.nextElementSibling.innerHTML = '手机号已被使用'
+        }else if(!tel.value){
+            tel.nextElementSibling.style.background=""
+            tel.nextElementSibling.innerHTML = '请输入手机号'
+        }else if(!telRE.test(tel.value)){
+            tel.nextElementSibling.style.background=""
+            tel.nextElementSibling.innerHTML = '手机号格式错误'
+        }else{
+            tel.nextElementSibling.innerHTML=""
+            tel.nextElementSibling.style.background = "url('./images/loicon.png') no-repeat -2px -21px";
+        }
+    }).catch(err=>{
+        console.log(err);
+    })
 }
-// user.onblur = function(){
-//     this.removeAttribute("style");
-//     this.nextElementSibling.style.visibility = 'visible'
-//     if(!this.value){
-//         this.nextElementSibling.innerHTML = ''
-//     }
-// }
+user.onblur = function(){
+    user.removeAttribute("style");
+    user.nextElementSibling.style.visibility = 'visible'
+    axios.get('http://localhost:3000/user?user='+user.value).then(res=>{
+        
+        if(res.data[0]){
+            user.nextElementSibling.style.background=""
+            user.nextElementSibling.innerHTML = '昵称已存在'
+        }else if(!user.value){
+            user.nextElementSibling.style.background=""
+            user.nextElementSibling.innerHTML = '请输入昵称'
+        }else{
+            user.nextElementSibling.innerHTML=""
+            user.nextElementSibling.style.background = "url('./images/loicon.png') no-repeat -2px -21px";
+        }
+    }).catch(err=>{
+        console.log(err);
+    })
+}
 

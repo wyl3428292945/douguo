@@ -28,17 +28,21 @@
                 </div>
                 <p class="hint">输入常用的手机号，便于登录和找回密码</p>
                 <div>
-                    <input type="text" placeholder="请输入昵称" id='user'>
+                    <input type="text" placeholder="请输入昵称" id='user' oninput="if(value.length>16)value=value.slice(0,16)">
                     <span class="test">昵称已存在</span>
                 </div>
                 <p class="hint">中英文均可，最多16个字喔~</p>
                 <div>
-                    <input type="password" placeholder="请输入密码" id='pwd'>
+                    <input type="password" placeholder="请输入密码" id='pwd' oninput="if(value.length>20)value=value.slice(0,20)">
                     <span class="test">请输入密码</span>
+                    <div class="pwd-hidden">
+                        <img src="" alt="">
+                        <div class="level"></div>
+                    </div>
                 </div>
                 <p class="hint">密码长度为6-20位，不能含有空格</p>
                 <div>
-                    <input type="password" placeholder="确认密码" id='confirm'>
+                    <input type="password" placeholder="确认密码" id='confirm' oninput="if(value.length>20)value=value.slice(0,20)">
                     <span class="test"></span>
                 </div>
                 <p class="hint">再输入一次密码</p>
