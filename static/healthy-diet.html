@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部文章_主题站_豆果美食</title>
+
+    <link rel="stylesheet" href="./css/healthy.css">
+    <script src="./js/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="content clearfix">
+        <div class="type-tab">
+            <div class="type-head clearfix">
+                <a href="" class="active">全部文章</a>
+                <a href="">全部主题站</a>
+            </div>
+        </div>
+        <div class="left">
+            <ul class="mb40">
+            </ul>
+            <div class="pages">
+                <a href="javascript:;" onclick="shou()">首页</a>
+                <ul class="list clearfix" onclick="getpage()">
+
+                </ul>
+                <a href="javascript:;" onclick="end()">末页</a>
+            </div>
+            <div class="fcc">
+                你当前的位置：<a href="">豆果美食</a> > 主题站
+            </div>
+        </div>
+        <div class="right">
+            <div class="title-head">
+                <h3>主题站</h3>
+            </div>
+            <ul class="theme-right">
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        var mb40 = document.querySelector('.mb40')
+        var theme_right = document.querySelector('.theme-right')
+
+        function setData(page = 1, lim = 2) {
+            axios.get('http://localhost:8083', {
+                params: {
+                    page,
+                    lim
+                }
+            }).then(res => {
+                var str = ""
+                for (var i = 0; i < res.data.length; i++) {
+                    str += `
+                <li class="clearfix">
+                    <div class="article-img">
+                        <a href="">
+                            <img src="${res.data[i].img}" alt="">
+                        </a>
+                    </div>
+                    <div class="article-info">
+                        <a href="">${res.data[i].title}</a>
+                        <p>来自:<a href="">${res.data[i].from}</a>/p>
+                        <p>${res.data[i].time}</p>
+                        <a href="">查看全文</a>
+                    </div>
+                   </li>
+                  `
+                }
+                mb40.innerHTML = str
+            }).catch(err => {
+                console.log(err)
+
+            })
+        }
+        setData()
+
+        function getpage() {
+            for (var i = 0; i < event.target.parentNode.children.length; i++) {
+                event.target.parentNode.children[i].classList.remove('aon');
+            }
+            event.target.classList.add('aon');
+            if (event.target != event.target.parentNode.children[0]) {
+                setData(event.target.innerText, 10)
+            } else {
+                setData()
+            }
+        }
+
+        function shou() {
+            setData(1, 2)
+            for (var i = 0; i < event.target.parentNode.children[1].children.length; i++) {
+                event.target.parentNode.children[1].children[i].classList.remove('aon');
+            }
+            event.target.parentNode.children[1].children[0].classList.add('aon');
+        }
+
+
+        function end() {
+            setData(event.target.parentNode.children[1].lastChild.previousSibling.innerText, 10)
+            for (var i = 0; i < event.target.parentNode.children[1].children.length; i++) {
+                event.target.parentNode.children[1].children[i].classList.remove('aon');
+            }
+            event.target.parentNode.children[1].lastChild.previousSibling.classList.add('aon');
+        }
+
+
+        function getLength() {
+            axios.get('http://localhost:8083/list').then(res => {
+                var num = Math.ceil(res.data.length / 10)
+                var str = ""
+                for (var i = 0; i < num; i++) {
+                    str += `
+                    <li>${i+1}</li>
+                    `
+                }
+                document.querySelector('.list').innerHTML = str
+                document.querySelector('.list').children[0].classList.add('aon');
+            }).catch(err => {
+                console.log(err)
+            })
+
+        }
+        getLength()
+        axios.get('http://localhost:8083/right').then(res => {
+            var str = ""
+            for (var i = 0; i < res.data.length; i++) {
+                str += `
+                <li>
+                    <div class="theme-img">
+                        <img src="${res.data[i].imgurl}" alt="">
+                    </div>
+                    <a href="
+                    ">${res.data[i].title}</a>
+                    <p>${res.data[i].cont}</p>
+                </li>
+                  `
+
+            }
+
+            theme_right.innerHTML = str
+        }).catch(err => {
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>
