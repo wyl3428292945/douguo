@@ -6,6 +6,7 @@ var user = document.getElementById('user')
 var pwd = document.getElementById('pwd')
 var confirm = document.getElementById('confirm')
 var telRE = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+var pwdRE = /(?!^(\d+|[a-zA-Z]+|[~!@#$%^&*?]+)$)^[\w~!@#$%^&*?]/
 ipt.forEach((item,index)=>{
     item.onfocus = function(){
         item.style.borderColor = 'skyblue'
@@ -53,4 +54,17 @@ user.onblur = function(){
         console.log(err);
     })
 }
-
+pwd.onblur = function(){
+    pwd.removeAttribute("style");
+    pwd.nextElementSibling.style.visibility = 'visible'
+    if(!pwd.value){
+        pwd.nextElementSibling.style.background=""
+        pwd.nextElementSibling.innerHTML = '请输入密码'
+    }else if(!pwdRE.test(pwd.value)){
+        pwd.nextElementSibling.style.background=""
+        pwd.nextElementSibling.innerHTML = '密码不符合我们的要求'
+    }else{
+        pwd.nextElementSibling.innerHTML=""
+        pwd.nextElementSibling.style.background = "url('./images/loicon.png') no-repeat -2px -21px";
+    }
+}
