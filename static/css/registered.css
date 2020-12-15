@@ -89,6 +89,14 @@ header a {
   background: #fff;
 }
 
+.content .wrap .form .test-code {
+  width: 105px;
+  height: 22px;
+  line-height: 22px;
+  padding: 5px 0px 5px 15px;
+  font-size: 12px;
+}
+
 .content .wrap .form .hint {
   height: 22px;
   line-height: 22px;
@@ -108,4 +116,60 @@ header a {
   margin: 4px 0 0 20px;
   visibility: hidden;
   vertical-align: middle;
+}
+
+.content .wrap .form > div:nth-of-type(3) {
+  position: relative;
+}
+
+.content .wrap .form .pwd-hidden {
+  position: absolute;
+  width: 282px;
+  height: 104px;
+  top: 0;
+  left: 332px;
+  background: #fff;
+  border: 1px solid #f0efed;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: none;
+}
+
+.content .wrap .form .pwd-hidden > img {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 15px;
+  left: -10px;
+}
+
+.content .wrap .form .pwd-hidden .level {
+  display: flex;
+}
+
+.content .wrap .form .pwd-hidden .level span {
+  display: block;
+  width: 50px;
+  height: 15px;
+  margin-right: 2px;
+  background-color: #eee;
+}
+
+.content .wrap .form .pwd-hidden .checklist {
+  margin-top: 5px;
+}
+
+.content .wrap .form .pwd-hidden .checklist li {
+  height: 23.77px;
+  line-height: 20px;
+}
+
+.content .wrap .form .pwd-hidden .checklist li b {
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  display: inline-block;
+  background: url("../images/1531891081.png") no-repeat 1px;
+  background-size: 15px;
 }
