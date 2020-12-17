@@ -1,0 +1,178 @@
+.header {
+    text-align: center;
+    border-bottom: 1px solid #E5E3DF;
+    padding-bottom: 20px;
+}
+
+.header>h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    line-height: 33px;
+    font-weight: bold;
+}
+
+.art-info {
+    font-size: 15px;
+}
+
+.art-info>span {
+    margin-right: 20px;
+    color: #999;
+}
+
+.art-info>span:nth-child(2) a,
+.art-info>span:nth-child(1) a {
+    color: #1a1a00;
+}
+
+.tiji {
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    margin: 16px 0 20px;
+    text-align: justify;
+}
+
+.par p:nth-child(5),
+.par p:nth-child(3),
+.par p:nth-child(1) {
+    margin-bottom: 8pt;
+    line-height: 15.6933px;
+    font-size: 11pt;
+    text-indent: 22pt;
+    padding-bottom: 16px;
+    font-family: 宋体;
+}
+
+.par p:nth-child(6) {
+    font-family: 宋体;
+    color: #a6a6a6;
+    font-size: 11pt;
+    margin-bottom: 8pt;
+    line-height: 15.6933px;
+    font-size: 11pt;
+    text-indent: 22pt;
+    padding-bottom: 16px;
+}
+
+.comment {
+    color: #333;
+    font: 12px Noto Sans, "思源黑体";
+}
+
+.mini-title {
+    font-size: 16px;
+    color: #333;
+    line-height: 20px;
+    font-weight: bold;
+    margin: 40px 0 25px;
+}
+
+.in-comment {
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.author-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    overflow: hidden;
+    float: left;
+}
+
+.author-img>img {
+    border-radius: 50%;
+}
+
+.comm-txt {
+    width: 648px;
+    height: 112px;
+    resize: none;
+    padding: 12px;
+    border: 1px solid #E5E3DF;
+    border-radius: 4px;
+    float: left;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.copy {
+    font-size: 13px;
+    color: #999;
+    padding: 80px 0 20px;
+}
+
+.comm-btn {
+    float: right;
+    color: #FFB31A;
+    right: 0;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 4px;
+    height: 34px;
+    width: 104px;
+    text-align: center;
+    line-height: 34px;
+    font-size: 15px;
+    border: 1px solid #FFB31A;
+}
+
+.comments {
+    padding-bottom: 40px;
+}
+
+.comments>li {
+    padding: 20px 0;
+    border-bottom: 1px solid #E5E3DF;
+    position: relative;
+}
+
+.author-img {
+    float: left;
+}
+
+.author-img>img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.author-comment {
+    margin-left: 10px;
+    width: 627px;
+    float: left;
+}
+
+.nickname {
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.commtxt {
+    font-size: 15px;
+    color: #333;
+    margin-top: 6px;
+    line-height: 24px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+.time {
+    font-size: 13px;
+    color: #999;
+    margin-top: 14px;
+}
+
+.reply-btn {
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    color: #256DC6;
+    font-size: 13px;
+}

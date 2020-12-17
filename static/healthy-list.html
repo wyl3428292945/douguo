@@ -5,10 +5,380 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/heallist.css">
+    <link rel="stylesheet" href="./css/healthy.css">
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+
+    <script src="https://cp1.douguo.com/static/nweb/js/jquery.js?st=20190421"></script>
+    <link rel="stylesheet" href="./css/public.css">
 </head>
 
 <body>
+    <nav id="header">
+        <div class="header clearfix">
+            <a class="logo left" href="/"><img src="https://cp1.douguo.com/static/nweb/images/logo3.png?20191218" alt=""></a>
+            <ul class="nav" id="nav">
+                <li class="act"><a href="http://www.douguo.com">首页</a></li>
+                <li class="relative " @mouseover="ctip=1" @mouseout="ctip=0">
+                    <a href="/jingxuan">菜谱 <span class="naww"></span></a>
+                    <div class="ctip" v-show="ctip">
 
+                        <span class="arwwj"> </span>
+                        <div class="ctab clearfix">
+                            <a href="/jingxuan/" target="_blank"><img src="https://cp1.douguo.com/static/nweb/images/jx3.png" alt=""> 精选</a>
+                            <a href="/zuixin/" target="_blank"> <img src="https://i1.douguo.com/upload/banner/1585648022.png" alt="" style="margin-right:4px;">最新</a>
+                            <a href="/caidan" target="_blank"><img src="https://cp1.douguo.com/static/nweb/images/menu3.png" alt=""> 菜单</a>
+                        </div>
+                        <div class="cblok clearfix">
+                            <div class="citem clearfix">
+                                <span>常见菜式</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/家常菜" target="_blank">家常菜</a>
+                                    <a href="/caipu/热菜" target="_blank">热菜</a>
+                                    <a href="/caipu/凉菜" target="_blank">凉菜</a>
+                                    <a href="/caipu/主食" target="_blank">主食</a>
+                                    <a href="/caipu/汤" target="_blank">汤</a>
+                                    <a href="/caipu/早餐" target="_blank">早餐</a>
+                                    <a href="/caipu/午餐" target="_blank">午餐</a>
+                                    <a href="/caipu/海鲜" target="_blank">海鲜</a>
+                                    <a href="/caipu/孕妇" target="_blank">孕妇</a>
+                                    <a href="/caipu/甜品" target="_blank">甜品</a>
+                                    <a href="/caipu/粥" target="_blank">粥</a>
+                                    <a href="/caipu/宝宝食谱" target="_blank">宝宝食谱</a>
+                                    <a href="/caipu/糕点" target="_blank">糕点</a>
+                                    <a href="/caipu/微波炉" target="_blank">微波炉</a>
+                                </div>
+                            </div>
+                            <div class="citem clearfix">
+                                <span>中国菜系</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/川菜" target="_blank">川菜</a>
+                                    <a href="/caipu/粤菜" target="_blank">粤菜</a>
+                                    <a href="/caipu/东北菜" target="_blank">东北菜</a>
+                                    <a href="/caipu/湘菜" target="_blank">湘菜</a>
+                                    <a href="/caipu/鲁菜" target="_blank">鲁菜</a>
+                                    <a href="/caipu/浙菜" target="_blank">浙菜</a>
+                                    <a href="/caipu/湖北菜" target="_blank">湖北菜</a>
+                                    <a href="/caipu/清真菜" target="_blank">清真菜</a>
+                                </div>
+                            </div>
+                            <div class="citem clearfix">
+                                <span>外国食谱</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/韩国" target="_blank">韩国</a>
+                                    <a href="/caipu/日本料理" target="_blank">日本料理</a>
+                                    <a href="/caipu/法国" target="_blank">法国</a>
+                                    <a href="/caipu/意大利餐" target="_blank">意大利餐</a>
+                                </div>
+                            </div>
+                            <div class="citem clearfix">
+                                <span>各地小吃</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/四川小吃" target="_blank">四川小吃</a>
+                                    <a href="/caipu/广东小吃" target="_blank">广东小吃</a>
+                                    <a href="/caipu/北京小吃" target="_blank">北京小吃</a>
+                                    <a href="/caipu/陕西小吃" target="_blank">陕西小吃</a>
+                                </div>
+                            </div>
+                            <div class="citem clearfix">
+                                <span>烘焙大全</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/蛋糕" target="_blank">蛋糕</a>
+                                    <a href="/caipu/面包" target="_blank">面包</a>
+                                    <a href="/caipu/饼干" target="_blank">饼干</a>
+                                    <a href="/caipu/披萨" target="_blank">披萨</a>
+                                    <a href="/caipu/甜品" target="_blank">甜品</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmore">
+                            <a href="/fenlei" target="_blank">查看全部分类 <img
+                                    src="https://cp1.douguo.com/static/nweb/images/more2.png" alt=""></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="relative " @mouseover="healthy=1" @mouseout="healthy=0">
+                    <a href="/article">饮食健康<span class="naww"></span></a>
+                    <div class="healthy" v-show="healthy">
+                        <span class="arwwj"> </span>
+                        <div class="cblok clearfix">
+                            <div class="diet clearfix">
+                                <span>饮食健康</span>
+                                <div class="imublo clearfix">
+                                    <a href="/article" target="_blank">饮食新闻</a>
+                                    <a href="/caipu/美容瘦身" target="_blank">美容瘦身</a>
+                                    <a href="/caipu/饮食小常识" target="_blank">饮食小常识</a>
+                                    <a href="/caipu/养生秘方" target="_blank">养生秘方</a>
+                                </div>
+                            </div>
+                            <div class="diet clearfix">
+                                <span>功能性调理</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/清热去火" target="_blank">清热去火</a>
+                                    <a href="/caipu/减肥" target="_blank">减肥</a>
+                                    <a href="/caipu/祛痰" target="_blank">祛痰</a>
+                                    <a href="/caipu/乌发" target="_blank">乌发</a>
+                                    <a href="/caipu/滋阴壮阳" target="_blank">滋阴壮阳</a>
+                                    <a href="/caipu/健脾养胃" target="_blank">健脾养胃</a>
+                                </div>
+                            </div>
+                            <div class="diet clearfix">
+                                <span>人群膳食</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/孕妇" target="_blank">孕妇</a>
+                                    <a href="/caipu/老人" target="_blank">老人</a>
+                                    <a href="/caipu/产妇" target="_blank">产妇</a>
+                                    <a href="/caipu/哺乳期" target="_blank">哺乳期</a>
+                                </div>
+                            </div>
+                            <div class="diet clearfix">
+                                <span>疾病调理</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/糖尿病" target="_blank">糖尿病</a>
+                                    <a href="/caipu/高血压" target="_blank">高血压</a>
+                                    <a href="/caipu/痛风" target="_blank">痛风</a>
+                                </div>
+                            </div>
+                            <div class="diet clearfix">
+                                <span>功效营养</span>
+                                <div class="imublo clearfix">
+                                    <a href="/caipu/补钙" target="_blank">补钙</a>
+                                    <a href="/caipu/贫血" target="_blank">贫血</a>
+                                    <a href="/caipu/提高免疫力" target="_blank">提高免疫力</a>
+                                    <a href="/caipu/养胃" target="_blank">养胃</a>
+                                    <a href="/caipu/防雾霾" target="_blank">防雾霾</a>
+                                    <a href="/caipu/润肺止咳" target="_blank">润肺止咳</a>
+                                    <a href="/caipu/养颜" target="_blank">养颜</a>
+                                    <a href="/caipu/失眠" target="_blank">失眠</a>
+                                    <a href="/caipu/抗癌" target="_blank">抗癌</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/dish/hot">笔记</a></li>
+                <li><a href="/mall">商城</a></li>
+                <li><a href="/cartoon">动漫</a></li>
+            </ul>
+            <form class="search br4 left" method="POST" id="searchForm" action="/caipu/" accept-charset="utf-8" onsubmit="document.charset='utf-8';return Search();">
+                <input type="text" id="global_search_inpt" class="sput" name="keywords" value="搜索菜谱、菜单、食材、用户" lang="zh-CN" autocomplete="off" onfocus="if(this.value=='搜索菜谱、菜单、食材、用户') {this.value=''; $(this).addClass('fcbm'); }" onblur="if(!this.value) {this.value='';$(this).removeClass('fcbm');} setTimeout(function (){$('#mysu2').html('')},500)"
+                    onkeyup="selectItem(event)" onclick="selectItem(event)">
+                <input type="submit" value=" " class="lib">
+                <div class="sugg2" id="mysu2" style="display:none;"></div>
+            </form>
+            <div class="pubt" onmouseover="javascript:$('.pubt-box').show();" onmouseout="javascript:$('.pubt-box').hide();"> <a class="btn-pubt" href="javascript:void(0);">发布</a>
+                <div class="pubt-box br8" style="display: none;"> <span class="arwwj"> </span> <a href="/upfood.html">发布菜谱</a> <a href="/caidan/create">创建菜单</a> </div>
+            </div>
+            <div class="perinfo"> <a class="login" href="/login"> 登录 </a> | <a class="register" href="/signup.html" target="_blank"> 注册 </a></div>
+        </div>
+    </nav>
+    <div class="content clearfix">
+        <div class="type-tab">
+            <div class="type-head clearfix">
+                <a href="./healthy-diet.html">全部文章</a>
+                <a href="javascript:;" class="active">全部主题站</a>
+            </div>
+        </div>
+
+        <div class="left">
+            <div class="wrap">
+
+            </div>
+        </div>
+
+        <div class="comment" id="app" style="width: 690px;">
+            <div class="comment-text">
+                <h2 class="mini-title">
+                    评论
+                </h2>
+                <div class="in-comment clearfix">
+                    <div class="author-img"><img src="./images/70.jpg" alt=""></div>
+                    <textarea class="comm-txt" v-model="text"></textarea>
+                    <a href="javascript:;" class="comm-btn" @click="getval">发表评论</a>
+                </div>
+            </div>
+            <ul class="comments">
+                <li class="clearfix" v-for="(list,index) in lists" :key="index">
+                    <a href="javascript:;" class="author-img"><img src="" v-bind:src="list.imgurl"></a>
+                    <div class="author-comment">
+                        <a href="" class="nickname">{{list.user}}</a>
+                        <p class="commtxt">{{list.content}}</p>
+                        <p class="time">{{list.time}}</p>
+                        <a href="" class="reply-btn ">回复</a>
+                    </div>
+                </li>
+                <p v-if="lists.length==0" v-bind:style="{'text-align':'center'}">暂无评论</p>
+            </ul>
+
+        </div>
+        <div class="fcc">你当前的位置：豆果美食 > 主题站</div>
+    </div>
+    <div id="footer">
+        <div class="dginfo">
+            <div class="dgintro">
+                <div class="logo2">
+                    <img class="wb100" src="https://cp1.douguo.com//static/nweb/images/logo3.png?20191218" alt="豆果美食logo">
+                </div>
+                <div class="datainfo">
+                    <p><span>500万+</span>美食菜谱；<span>2000万+</span>互动内容；<span>3000+</span>美食课堂；<span>5000万+</span>用户每天都有新分享
+                    </p>
+                </div>
+                <div class="threbl">
+                    <h3>扫二维码，下载豆果手机应用：</h3>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);" class="emdgms">
+                                <img width="92" height="92" src="https://cp1.douguo.com//static/nweb/images/qrcode.png?2001" alt="豆果美食">
+                            </a>豆果美食
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="emwx">
+                                <img width="92" height="92" src="https://cp1.douguo.com//static/nweb/images/xcx.jpg?2001" alt="豆果美食">
+                            </a>微信扫一扫
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="emdgms">
+                                <img width="92" height="92" src="https://i1.douguo.com//upload/banner/1578991488.png" alt="豆果美食">
+                            </a>豆果公众号
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot">
+                <div class="clink relative">
+                    <a href="/about/douguo.html" rel="nofollow" target="_blank">关于豆果</a> ·
+                    <a href="/about/comeon.html" rel="nofollow" target="_blank">在豆果工作</a> ·
+                    <a href="/user/feedback" rel="nofollow" target="_blank">意见反馈</a> ·
+
+                    <a href="/allrecipes" target="_blank">菜谱大全</a>
+                </div>
+                <div class="cght" style="text-align: center;">
+                    <a href="https://www.douguo.com" target="_blank">北京豆果信息技术有限公司</a>
+                    <span>京ICP证111032号</span>
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502038268">
+                        <img src="https://i1.douguo.com//upload/banner/1564469142.png" lazysrc="" style="margin-bottom: -3px;width:20px"> 京公网安备 11010502038268号
+                    </a>
+                    <a target="_blank" href="http://beian.miit.gov.cn">
+                    京ICP备09012748号
+                </a>
+                    <p style="margin:5px 0;cursor: pointer;" onclick="$('.smask2').show();$('.medicinal_box').show();">
+                        互联网药品信息服务资格证书</p>
+                    <a href="http://sq.ccm.gov.cn/ccnt/sczr/doLogin" target="_blank">
+                        <img src="https://i1.douguo.com//upload/banner/1522057799.png" style="margin-bottom: -3px;width:20px"> 京网文【2017】6954-770号
+                    </a> 食品流通许可证SP1101061510252413
+                    <a href="javascript:void(0);" style="display:block;text-align:center;margin-top:5px;" onclick="$('.smask2').show();$('.tvbox').show();">广播电视节目制作经营许可证（京）字第11624号</a>
+                    <div class="smask2" style="position:fixed;width:100%;height:100%;top:0;left:0;background: black;z-index:999;display: none;opacity: .6;filter: alpha(opacity=60)">
+                    </div>
+                    <div class="tvbox" style="position: fixed;top:50%;left:50%;z-index:1000;margin-left:-350px;margin-top:-250px;display: none;">
+                        <img src="https://i1.douguo.com//upload/banner/1551092008.jpg" alt="">
+                        <img style="position: absolute;top:15px;right:15px;cursor: pointer;" src="https://cp1.douguo.com/static/nweb/images/close.png" alt="" onclick="$('.smask2').hide();$('.tvbox').hide();">
+                    </div>
+                    <div class="medicinal_box" style="position: fixed;top:50%;left:50%;z-index:1000;margin-left:-350px;margin-top:-250px;display: none;">
+                        <img style="display:block;width:700px;" src="https://i1.douguo.com//upload/banner/1577185524.jpg" alt="">
+                        <img style="position: absolute;top:15px;right:15px;cursor: pointer;" src="https://cp1.douguo.com/static/nweb/images/close.png" alt="" onclick="$('.smask2').hide();$('.medicinal_box').hide();">
+                    </div>
+                </div>
+                <div class="botfans" style="padding: 15px 0 20px;text-align: center;">
+                    <span class="bonefans" style="display: inline-block;width: 64px;overflow: hidden;position: relative;top: 6px;"><iframe
+                        width="136" height="24" frameborder="0" allowtransparency="true" marginwidth="0"
+                        marginheight="0" scrolling="no"
+                        src="https://widget.weibo.com/relationship/followbutton.php?language=zh_cn&amp;width=136&amp;height=24&amp;uid=1647910344&amp;style=2&amp;;btn=light&amp;dpc=1"></iframe></span>
+                    <a style="margin-left: 12px;" id="___szfw_logo___" href="https://credit.szfw.org/CX20170707035016320368.html" target="_blank"><img src="https://i1.douguo.com/upload/banner/1528470330.png" style="height: 22px;margin-top: -1px;"></a>
+                    <script type="text/javascript">
+                        (function() {
+                            document.getElementById('___szfw_logo___').oncontextmenu = function() {
+                                return false;
+                            }
+                        })();
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/public.js"></script>
+    <script>
+        axios.get("http://localhost:8083/detail", {
+            params: {
+                id: localStorage.getItem("id")
+            }
+        }).then(res => {
+            console.log(res)
+            var str = ""
+            for (var i = 0; i < res.data.length; i++) {
+                str += `
+                <div class="header">
+                <h3>${res.data[i].title}</h3>
+                <div class="art-info">
+                        <span><a href="">${res.data[i].from}</a> </span> <span><a href="">作者：${res.data[i].zuo}</a></span> <span>${res.data[i].timer}</span> <span>${res.data[i].liulan}</span>
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="tiji">
+                        ${res.data[i].titletoo}
+                    </div>
+                    <div class="par">
+                        <p>
+                            ${res.data[i].conone}
+                        </p>
+                        <br>
+                        <p>${res.data[i].contoo}</p>
+                        <br>
+                        <p>${res.data[i].consoo}</p>
+                        <p>${res.data[i].confff}</p>
+
+                    </div>
+                    <div class="copy">
+                        ${res.data[i].chu}
+                    </div>
+                        `
+            }
+            document.querySelector('.wrap').innerHTML = str
+        }).catch(err => {
+            console.log(err)
+        })
+        var date = new Date()
+        const app = new Vue({
+            el: '#app',
+            data: {
+                imgs: [{
+                    imgurl: './images/mc05.jpg',
+                    user: "蓝山"
+                }, {
+                    imgurl: './images/mc04.jpg',
+                    user: "余生"
+                }, {
+                    imgurl: './images/mc02.jpg',
+                    user: "简乐"
+                }],
+                text: "",
+                lists: [],
+
+            },
+            methods: {
+                getval() {
+                    if (this.text.length > 0) {
+                        var ranObj = this.imgs[this.random(0, 2)]
+                        var obj = {
+                            user: ranObj.user,
+                            imgurl: ranObj.imgurl,
+                            num: 0,
+                            content: this.text,
+                            time: date.toLocaleDateString()
+                        }
+                        this.lists.push(obj)
+                    }
+                    this.text = ""
+
+
+                },
+                random(a, b) {
+                    return Math.floor(Math.random() * (b - a + 1) + a);
+                }
+            }
+
+        })
+    </script>
 </body>
 
 </html>
