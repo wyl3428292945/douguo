@@ -6,7 +6,34 @@
     box-sizing: border-box;
 }
 
-body, div, img, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, a, blockquote, th, td {
+body,
+div,
+img,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+a,
+blockquote,
+th,
+td {
     margin: 0;
     padding: 0;
     border: 0;
@@ -24,7 +51,12 @@ body {
     padding-top: 60px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
 }
 
@@ -41,16 +73,23 @@ img {
     vertical-align: bottom;
 }
 
-ol, ul, li {
+ol,
+ul,
+li {
     list-style: none;
 }
 
-input, textarea, select, button {
+input,
+textarea,
+select,
+button {
     font: 12px Noto Sans, "思源黑体";
     outline: 0;
 }
 
-input[type=button], input[type=text], input[type=password] {
+input[type=button],
+input[type=text],
+input[type=password] {
     -webkit-appearance: none;
     outline: none;
     box-shadow: none;
@@ -150,6 +189,7 @@ input[type=button], input[type=text], input[type=password] {
     min-height: 600px;
 }
 
+
 /*头部*/
 
 #header {
@@ -176,6 +216,7 @@ input[type=button], input[type=text], input[type=password] {
 #header .logo>img {
     height: 30px;
 }
+
 
 /*导航栏*/
 
@@ -206,12 +247,6 @@ input[type=button], input[type=text], input[type=password] {
     border-radius: 8px 8px 0 0;
 }
 
-#header .nav li.act>a {
-    color: #FFB31A;
-    font-weight: bold;
-    border-bottom: 2px solid #FFB31A;
-}
-
 #header .nav .naww {
     display: inline-block;
     width: 12px;
@@ -223,6 +258,7 @@ input[type=button], input[type=text], input[type=password] {
 #header .nav .act .naww {
     background: url('https://cp1.douguo.com/static/nweb/images/share-more.png');
 }
+
 
 /*搜索*/
 
@@ -297,6 +333,7 @@ input[type=button], input[type=text], input[type=password] {
     padding-left: 10px;
 }
 
+
 /*发布*/
 
 #header .pubt {
@@ -346,6 +383,7 @@ input[type=button], input[type=text], input[type=password] {
     background: transform;
 }
 
+
 /*登录注册*/
 
 #header .perinfo {
@@ -355,7 +393,8 @@ input[type=button], input[type=text], input[type=password] {
     line-height: 30px;
 }
 
-#header .perinfo .login, #header .perinfo .register {
+#header .perinfo .login,
+#header .perinfo .register {
     font-size: 15px;
     color: #000;
     font-weight: normal;
@@ -425,6 +464,7 @@ input[type=button], input[type=text], input[type=password] {
     top: 8px;
     right: 23px;
 }
+
 
 /*菜单弹窗*/
 
@@ -509,7 +549,8 @@ input[type=button], input[type=text], input[type=password] {
     height: 16px;
 }
 
-.nav .citem, .nav .diet {
+.nav .citem,
+.nav .diet {
     margin-bottom: 32px;
 }
 
@@ -555,7 +596,8 @@ input[type=button], input[type=text], input[type=password] {
     line-height: 30px;
 }
 
-.nav .imore, .nav .cmore a {
+.nav .imore,
+.nav .cmore a {
     color: #256DC6;
 }
 
@@ -566,7 +608,8 @@ input[type=button], input[type=text], input[type=password] {
     margin-right: 16px;
 }
 
-.nav .ctab a:hover, .nav .citem a:hover.nav .diet a:hover {
+.nav .ctab a:hover,
+.nav .citem a:hover.nav .diet a:hover {
     color: #ffaa00;
 }
 
@@ -582,9 +625,13 @@ input[type=button], input[type=text], input[type=password] {
     background: url("https://cp1.douguo.com/static/nweb/images/share-more.png");
 }
 
-#header .nav li>a:hover, #header .pubt-box a:hover, #header .myedit a:hover, #header .perinfo a:hover {
+#header .nav li>a:hover,
+#header .pubt-box a:hover,
+#header .myedit a:hover,
+#header .perinfo a:hover {
     color: #ffaa00;
 }
+
 
 /*主体*/
 
@@ -602,6 +649,7 @@ input[type=button], input[type=text], input[type=password] {
     width: 280px;
     float: right;
 }
+
 
 /*尾部*/
 
@@ -682,7 +730,8 @@ input[type=button], input[type=text], input[type=password] {
     background-size: cover;
 }
 
-.emwx, .emdgms {
+.emwx,
+.emdgms {
     width: 92px;
     height: 92px;
     display: block;
@@ -710,9 +759,11 @@ input[type=button], input[type=text], input[type=password] {
     padding: 15px 0 20px 370px;
 }
 
+
 /*评论*/
 
-#comment .author-img, .author-comment {
+#comment .author-img,
+.author-comment {
     float: left;
 }
 
@@ -804,6 +855,7 @@ input[type=button], input[type=text], input[type=password] {
     font-size: 13px;
 }
 
+
 /*分页*/
 
 .pages {
@@ -828,6 +880,7 @@ input[type=button], input[type=text], input[type=password] {
     border: 1px solid #FFB31A;
 }
 
+
 /*提示弹窗*/
 
 .fadetip {
@@ -848,6 +901,7 @@ input[type=button], input[type=text], input[type=password] {
     color: #fff;
 }
 
+
 /*登录弹窗*/
 
 .smask {
@@ -863,7 +917,9 @@ input[type=button], input[type=text], input[type=password] {
     filter: alpha(opacity=60)
 }
 
-#log-box, #coll-box, #bigimg {
+#log-box,
+#coll-box,
+#bigimg {
     display: none;
     z-index: 1000;
 }
@@ -951,13 +1007,15 @@ input[type=button], input[type=text], input[type=password] {
     cursor: pointer;
 }
 
-.cellerr, .pwerr {
+.cellerr,
+.pwerr {
     height: 16px;
     line-height: 16px;
     font-size: 12px;
     color: red;
     padding: 5px;
 }
+
 
 /*typehead*/
 
@@ -1047,6 +1105,7 @@ input[type=button], input[type=text], input[type=password] {
     margin-bottom: 30px;
 }
 
+
 /*面包屑导航*/
 
 .fcc {
@@ -1060,9 +1119,11 @@ input[type=button], input[type=text], input[type=password] {
     color: #ffaa00;
 }
 
+
 /*达人标识*/
 
-.proqy, .progr {
+.proqy,
+.progr {
     margin-left: 3px;
     width: 16px;
     height: 16px;
@@ -1092,6 +1153,7 @@ input[type=button], input[type=text], input[type=password] {
     width: 100%;
 }
 
+
 /*性别图标*/
 
 .male {
@@ -1103,6 +1165,7 @@ input[type=button], input[type=text], input[type=password] {
     background: url("https://cp1.douguo.com/static/nweb/images/female.png") no-repeat;
     background-size: 100% 100%;
 }
+
 
 /* 大家都在搜 */
 

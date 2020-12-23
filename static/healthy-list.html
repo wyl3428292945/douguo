@@ -99,7 +99,9 @@
                     </div>
                 </li>
                 <li class="relative " @mouseover="healthy=1" @mouseout="healthy=0">
-                    <a href="/article">饮食健康<span class="naww"></span></a>
+                    <a href="/article" style="   color: #FFB31A;
+                    font-weight: bold;
+                    border-bottom: 2px solid #FFB31A;">饮食健康<span class="naww" style="  background: url('https://cp1.douguo.com/static/nweb/images/share-more.png');"></span></a>
                     <div class="healthy" v-show="healthy">
                         <span class="arwwj"> </span>
                         <div class="cblok clearfix">
@@ -208,7 +210,7 @@
                         <a href="" class="reply-btn ">回复</a>
                     </div>
                 </li>
-                <p v-if="lists.length==0" v-bind:style="{'text-align':'center'}">暂无评论</p>
+                <p v-if="lists.length==0" v-bind:style="{'text-align':'center'}"></p>
             </ul>
 
         </div>
