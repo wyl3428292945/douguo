@@ -1,0 +1,27 @@
+{
+    "name": "douguo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wyl3428292945/douguo.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/wyl3428292945/douguo/issues"
+    },
+    "homepage": "https://github.com/wyl3428292945/douguo#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mysql": "^2.18.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    }
+}

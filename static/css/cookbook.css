@@ -1,0 +1,358 @@
+#wrap {
+    width: 100%;
+}
+
+a:visited {
+    color: #333;
+}
+
+.content {
+    width: 1000px;
+    margin: 81px auto 0;
+}
+
+.content .type-tab {
+    height: 45px;
+    margin: 11px 0 25px;
+}
+
+.content .type-tab li {
+    float: left;
+}
+
+.content .type-tab li a {
+    color: #383830;
+    font-size: 14px;
+    display: block;
+    width: 28px;
+    margin-right: 30px;
+    line-height: 42px;
+    height: 42px;
+    border-bottom: 2px solid transparent;
+}
+
+.content .type-tab .active a {
+    border-color: #383830;
+    font-weight: bold;
+}
+
+.content .type-tab li a:hover {
+    text-decoration: none;
+    color: #ffaa00;
+}
+
+.content h2 {
+    font-size: 20px;
+    color: #333;
+    line-height: 20px;
+    margin-bottom: 25px;
+}
+
+.content h2 span {
+    font-size: 14px;
+    color: #999;
+    padding: 0 10px;
+    font-weight: normal;
+}
+
+.content h2 .active {
+    font-weight: bold;
+    color: #333;
+}
+
+.content #selection {
+    overflow: hidden;
+}
+
+.content #selection .li {
+    width: 300px;
+    height: 255px;
+    float: left;
+    overflow: hidden;
+    margin: 0 40px 40px 0;
+}
+
+.content #selection li:nth-of-type(3n) {
+    margin-right: 0;
+}
+
+.content #selection li a {
+    color: #383830;
+    display: block;
+}
+
+.content #selection li a:hover {
+    text-decoration: none;
+    color: #ffaa00;
+}
+
+.content #selection li .img {
+    width: 300px;
+    height: 200px;
+}
+
+.content #selection li .img img {
+    width: 300px;
+}
+
+.content #selection li .relative {
+    width: 300px;
+    height: 55px;
+    color: #333;
+}
+
+.content #selection li .relative .cookname {
+    padding: 10px 0;
+    font-size: 15px;
+    height: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.content #selection li .relative .cookname:hover {
+    color: #ffaa00;
+}
+
+.content #selection li .relative .author {
+    float: left;
+    max-width: 170px;
+    font-size: 12px;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content #selection li .relative .author img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.content #selection li .relative .author i {
+    font-style: normal;
+    line-height: 20px;
+    vertical-align: bottom;
+}
+
+.content #selection li .relative .proicon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    float: left;
+}
+
+.content #selection li .relative .proicon img {
+    width: 16px;
+}
+
+.content #selection li .relative .view-coll {
+    float: right;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.content #selection li .relative .view-coll .view::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+    margin-top: -2px;
+    width: 17px;
+    height: 12px;
+    background: url("../images/view2.png");
+}
+
+.content #selection li .relative .view-coll .collect::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+    margin-top: -2px;
+    width: 14px;
+    height: 13px;
+    background: url("../images/collect2.png");
+}
+
+.content .pages {
+    text-align: center;
+    margin: 20px auto 0;
+}
+
+.content .pages #pagediv {
+    display: inline-block;
+}
+
+.content .pages #pagediv .active {
+    background: #FFB31A;
+    color: #fff;
+    border: 1px solid #FFB31A;
+}
+
+.content .pages a {
+    display: inline-block;
+    padding: 2px 6px 3px;
+    background-color: #fff;
+    color: #333;
+    margin: 0 7px;
+    border: 1px solid #333;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.content .pages a:hover {
+    text-decoration: none;
+}
+
+.content .fcc {
+    font-size: 13px;
+    color: #333;
+    line-height: 13px;
+    padding: 80px 0 10px;
+}
+
+.content .fcc a {
+    text-decoration: none;
+}
+
+.content .fcc a:hover {
+    color: #ffaa00;
+}
+
+.content #selection .class-li {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.class-title {
+    font-size: 20px;
+    color: #333;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.class-span {
+    width: 142px;
+    float: left;
+    font-size: 14px;
+    display: block;
+    color: #256dc6;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.class-con {
+    overflow: hidden;
+}
+
+.span-none {
+    display: none;
+}
+
+.content #selection .menuLi {
+    position: relative;
+    width: 306px;
+    height: 172px;
+    border-radius: 8px;
+    float: left;
+    margin-right: 41px;
+    margin-bottom: 41px;
+    overflow: hidden;
+}
+
+.content #selection .menuLi:nth-of-type(3n) {
+    margin-right: 0;
+}
+
+.content #selection .menuLi img {
+    display: block;
+    width: 100%;
+}
+
+.content #selection .menuLi .menuInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .14);
+    text-align: center;
+}
+
+.content #selection .menuLi .menuInfo h4 {
+    padding-top: 62px;
+    font-size: 16px;
+    color: #FFF;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+    margin: 0 auto;
+    width: 290px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.content #selection .menuLi .menuInfo p {
+    width: 290px;
+    font-size: 13px;
+    color: #FFF;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.food-title {
+    font-size: 18px;
+}
+
+.food-li {
+    height: 104px;
+}
+
+.food-title2 {
+    background-color: #FFF0D2;
+    font-size: 16px;
+    width: 152px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    float: left;
+}
+
+.food-con {
+    width: 847px;
+    float: right;
+    overflow: hidden;
+}
+
+.food-div {
+    float: left;
+    width: 56px;
+    text-align: center;
+    font-size: 13px;
+    margin-left: 21px;
+    margin-bottom: 30px;
+    height: 74px;
+}
+
+.food-div img {
+    width: 56px;
+    height: 56px;
+    display: block;
+}
+
+.food-div h5 {
+    font-size: 13px;
+    width: 56px;
+    height: 21px;
+    line-height: 21px;
+    font-weight: normal;
+}
