@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录-豆果美食</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/login.min.css">
+    <link rel="icon" href="https://cp1.douguo.com/static/nweb/images/favicon.ico?v=1912" type="image/x-icon">
+    <script src="./js/axios.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <a href="index.html"></a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="wrap">
+            <div class="con-left">
+                <img src="./images/sinin.png" alt="">
+            </div>
+            <div class="con-right">
+                <div class="right-top">
+                    <h2 class="active">免密登录</h2>
+                    <h2>密码登录</h2>
+                    <span></span>
+                </div>
+                <div class="logone log log-active">
+                    <div class="ipt1">
+                        <div class="area">
+                            <input type="text" value="+86">
+                            <svg style="position: absolute; right: 6%; top: 12%;" class="updown" id="updown"
+                                fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                                <path
+                                    d="M12 16.183l2.716-2.966a.757.757 0 0 1 1.064.001.738.738 0 0 1 0 1.052l-3.247 3.512a.758.758 0 0 1-1.064 0L8.22 14.27a.738.738 0 0 1 0-1.052.758.758 0 0 1 1.063 0L12 16.183zm0-9.365L9.284 9.782a.758.758 0 0 1-1.064 0 .738.738 0 0 1 0-1.052l3.248-3.512a.758.758 0 0 1 1.065 0L15.78 8.73a.738.738 0 0 1 0 1.052.757.757 0 0 1-1.063.001L12 6.818z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <input type="text" class="tel" placeholder="手机号">
+                    </div>
+                    <div class="ipt2">
+                        <input type="text" placeholder="输入6位短信验证码" class="test-code">
+                        <span onclick="getCode()">获取短信验证码</span>
+                    </div>
+                    <p id="prompt"></p>
+                    <button onclick="submit()">注册/登录</button>
+                    <p class="agreement">
+                        <input type="checkbox" class="ag-ipt">我已阅读并且同意
+                        <a href="javascript:;">豆果美食使用协议</a>
+                    </p>
+                    <div class="otth">
+                        <span>社交账号登录</span>
+                        <span class="other">
+                            <a href="javascript" class="awx"><i class="wx"></i>微信</a>
+                            <a href="javascript" class="aqq"><i class="qq"></i>QQ</a>
+                            <a href="javascript" class="aweibo"><i class="weibo"></i>微博</a>
+                          </span>
+                    </div>
+                </div>
+                <div class="logtwo log">
+                    <div class="ipt1">
+                        <div class="area">
+                            <input type="text" value="+86">
+                            <svg style="position: absolute; right: 6%; top: 12%;" class="updown" id="updown"
+                                fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                                <path
+                                    d="M12 16.183l2.716-2.966a.757.757 0 0 1 1.064.001.738.738 0 0 1 0 1.052l-3.247 3.512a.758.758 0 0 1-1.064 0L8.22 14.27a.738.738 0 0 1 0-1.052.758.758 0 0 1 1.063 0L12 16.183zm0-9.365L9.284 9.782a.758.758 0 0 1-1.064 0 .738.738 0 0 1 0-1.052l3.248-3.512a.758.758 0 0 1 1.065 0L15.78 8.73a.738.738 0 0 1 0 1.052.757.757 0 0 1-1.063.001L12 6.818z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <input type="text" class="tel2" placeholder="请输入手机号">
+                    </div>
+                    <div class="ipt2">
+                        <input type="password" placeholder="请输入密码" id="pwd">
+                        <span id="hide"></span>
+                        <span id="open"></span>
+                    </div>
+                    <div class="forget">
+                        <p id="prompt2"></p>
+                        <a href="./forget.html">忘记密码></a>
+                    </div>
+                    <button onclick="submit2()">登录</button>
+                    <p class="agreement">
+                        <input type="checkbox" class="ag-ipt2">我已阅读并且同意
+                        <a href="javascript:;">豆果美食使用协议</a>
+                    </p>
+                    <div class="otth">
+                        <span>社交账号登录</span>
+                        <span class="other">
+                            <a href="javascript" class="awx"><i class="wx"></i>微信</a>
+                            <a href="javascript" class="aqq"><i class="qq"></i>QQ</a>
+                            <a href="javascript" class="aweibo"><i class="weibo"></i>微博</a>
+                          </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="clink">
+            <a href="javascript">关于豆果</a> ·
+            <a href="javascript">在豆果工作</a> ·
+            <a href="javascript">意见反馈</a> ·
+            <a href="javascript">友情链接</a> · 
+            <a href="javascript">菜谱大全</a> ·
+            <a href="javascript">品牌馆</a>
+        </div>
+        <div class="cght">
+            ©2009-2015 <a href="javascript">北京豆果信息技术有限公司</a> <a href="javascript">京ICP证111032号</a> 京公网安备11010102001133号 京网文[2014]0774-174号
+        </div>
+    </footer>
+    <div class="marsk" onclick="del()">
+        <div class="mar-con">
+            <p>请输入验证码</p>
+            <div>
+                <input type="text" class="msk-ipt">
+                <span class="rd-code"></span>
+            </div>
+            <button class="msk-btn">确认</button>
+        </div>
+    </div>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

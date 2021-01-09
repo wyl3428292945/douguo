@@ -59,13 +59,43 @@
                 <p class="hint">密码长度为6-20位，不能含有空格</p>
                 <div>
                     <input type="password" placeholder="确认密码" id='confirm' oninput="if(value.length>20)value=value.slice(0,20)">
-                    <span class="test"></span>
+                    <span class="test">请输入确认密码</span>
                 </div>
                 <p class="hint">再输入一次密码</p>
                 <div>
-                    <input type="text" placeholder="输入验证码" class="test-code">
+                    <input type="text" placeholder="输入验证码" class="test-code" disabled>
+                    <button class="tc-btn" onclick="getCode()">获取验证码</button>
                 </div>
+                <p class="test last-test"></p>
+                <p class="agreement">
+                    <input type="checkbox" class="ag-ipt">我已阅读并且同意
+                    <a href="javascript:;">豆果美食使用协议</a>
+                </p>
+                <button onclick="submit()">注册</button>
             </div>
+        </div>
+    </div>
+    <footer>
+        <div class="clink">
+            <a href="javascript">关于豆果</a> ·
+            <a href="javascript">在豆果工作</a> ·
+            <a href="javascript">意见反馈</a> ·
+            <a href="javascript">友情链接</a> · 
+            <a href="javascript">菜谱大全</a> ·
+            <a href="javascript">品牌馆</a>
+        </div>
+        <div class="cght">
+            ©2009-2015 <a href="javascript">北京豆果信息技术有限公司</a> <a href="javascript">京ICP证111032号</a> 京公网安备11010102001133号 京网文[2014]0774-174号
+        </div>
+    </footer>
+    <div class="marsk" onclick="del()">
+        <div class="mar-con">
+            <p>请输入验证码</p>
+            <div>
+                <input type="text" class="msk-ipt">
+                <span class="rd-code"></span>
+            </div>
+            <button class="msk-btn">确认</button>
         </div>
     </div>
     <script src="./js/registered.js"></script>

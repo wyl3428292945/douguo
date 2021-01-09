@@ -42,6 +42,7 @@ header a {
 
 .content .wrap {
   background-color: #fff;
+  box-shadow: 0 1px 3px rgba(100, 100, 100, 0.1);
 }
 
 .content .wrap .con-top {
@@ -78,7 +79,7 @@ header a {
   margin-bottom: 10px;
 }
 
-.content .wrap .form input {
+.content .wrap .form > div input {
   width: 300px;
   height: 28px;
   line-height: 28px;
@@ -95,6 +96,7 @@ header a {
   line-height: 22px;
   padding: 5px 0px 5px 15px;
   font-size: 12px;
+  cursor: not-allowed;
 }
 
 .content .wrap .form .hint {
@@ -172,4 +174,153 @@ header a {
   display: inline-block;
   background: url("../images/1531891081.png") no-repeat 1px;
   background-size: 15px;
+}
+
+.content .wrap .form .tc-btn {
+  margin-top: -9px;
+  font-size: 12px;
+  height: 34px;
+  width: 132px;
+  margin-left: 53px;
+  background-image: none;
+  background-color: #e6e6e6;
+  border: 0;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.content .wrap .form .tc-btn:hover {
+  background-color: #ddd;
+}
+
+.content .wrap .form .last-test {
+  width: 200px;
+  height: 32px;
+  line-height: 32px;
+  margin-top: 4px;
+  color: #f00;
+  margin-left: 65px;
+}
+
+.content .wrap .form .agreement {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.content .wrap .form .agreement input {
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+.content .wrap .form .agreement a {
+  color: #12937c;
+}
+
+.content .wrap .form > button {
+  width: 310px;
+  height: 42px;
+  background: #ffb31a;
+  color: #fff;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 42px;
+  font-size: 14px;
+  outline: none;
+  border: 0;
+  margin-bottom: 30px;
+}
+
+footer {
+  margin-top: 30px;
+}
+
+footer .clink {
+  width: 940px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+footer .clink a {
+  color: #6b553f;
+}
+
+footer .cght {
+  width: 940px;
+  margin: 0 auto;
+  color: #999;
+  text-align: center;
+}
+
+footer .cght a {
+  color: #999;
+}
+
+.marsk {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.marsk .mar-con {
+  padding: 30px 54px;
+  width: 300px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.marsk .mar-con p {
+  color: #323232;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.marsk .mar-con > div {
+  margin: 10px 0 20px;
+}
+
+.marsk .mar-con > div input {
+  border: 1px solid #ccc;
+  height: 38px;
+  width: 148px;
+  line-height: 36px;
+  font-size: 20px;
+  text-align: center;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  color: #555;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.marsk .mar-con > div span {
+  display: inline-block;
+  margin-left: 6px;
+  text-align: center;
+  width: 128px;
+  line-height: 45px;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.marsk .mar-con .msk-btn {
+  color: #fff;
+  outline: none;
+  border: 0;
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  background: #FECD4A;
+  border-radius: 4px;
 }
