@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/cookbook.css">
+
+    <script src="./js/vue.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="wrap" id="wrap">
+        <top></top>
+
+
+
+
+        <div class="container">
+            <div class="content">
+                <ul class="type-tab">
+                    <li class="active"><a href="javascript:;" onclick="getTitle()">精选</a></li>
+                    <li><a href="javascript:;" onclick="getTitle()">最新</a></li>
+                    <li><a href="javascript:;" onclick="getClass()">分类</a></li>
+                    <li><a href="javascript:;" onclick="getFood()">食材</a></li>
+                    <li><a href="javascript:;" onclick="getTitle()">菜单</a></li>
+                </ul>
+                <h2 class="h2">精选推荐菜谱</h2>
+                <ul id="selection">
+                </ul>
+                <div class="pages">
+                    <a href="javascript:;" class="firstpage" onclick="firstpage()">首页</a>
+                    <a href="javascript:;" class="prepage" onclick="prepage()">上一页</a>
+                    <div id="pagediv" onclick="getPage()">
+                    </div>
+                    <a href="javascript:;" class="nextpage" onclick="nextpage()">下一页</a>
+                    <a href="javascript:;" class="endpage" onclick="endpage()">末页</a>
+                </div>
+                <p class="fcc">你当前的位置:
+                    <a href="">豆果美食</a> >
+                    <a href="">菜谱</a> >
+                    <span class="locat"></span>
+                </p>
+            </div>
+        </div>
+
+        <but></but>
+    </div>
+
+
+    <script src="./js/public.js"></script>
+
+    <script src="js/axios.min.js"></script>
+    <script>
+        var selection = document.getElementById('selection')
+        var title = 'choiceness'
+        var getpage = 'getpagea'
+        var h2 = document.querySelector('.h2')
+        var locat = document.querySelector('.locat')
+        var pre = document.querySelector('.prepage')
+        var next = document.querySelector('.nextpage')
+        var pages = document.querySelector('.pages')
+        var tab = document.querySelectorAll('.type-tab li')
+        var selection = document.getElementById('selection')
+        locat.innerText = h2.innerText
+
+        function getTitle() {
+            if (event.target.innerHTML == '精选') {
+                title = 'choiceness'
+                getpage = 'getpagea'
+                h2.innerText = '精选推荐菜谱'
+                locat.innerText = '精选菜谱'
+            } else if (event.target.innerHTML == '最新') {
+                title = 'recent'
+                getpage = 'getpageb'
+                h2.innerText = '最新菜谱'
+                locat.innerText = '最新菜谱'
+            } else if (event.target.innerHTML == '菜单' || event.target.innerHTML == '最热菜单') {
+                title = 'hot'
+                getpage = 'getpagec'
+                h2.innerHTML = "<span class='new' onclick='getTitle()'>最新菜单</span><span class='hot active' onclick='getTitle()'>最热菜单</span>"
+                locat.innerText = '菜单'
+            } else if (event.target.innerHTML == '最新菜单') {
+                title = 'new'
+                getpage = 'getpaged'
+                h2.innerHTML = "<span class='new active' onclick='getTitle()'>最新菜单</span><span class='hot' onclick='getTitle()'>最热菜单</span>"
+                locat.innerText = '菜单'
+            }
+            firstpage()
+                // locat.innerText = h2.innerText
+        }
+
+
+        function getData(page = 1) {
+            axios.get('http://localhost:3000/' + title, {
+                params: {
+                    page
+                }
+            }).then(res => {
+                var str = '';
+                if (title == 'choiceness' || title == 'recent') {
+                    for (var i = 0; i < res.data.length; i++) {
+                        str += `
+                            <li class="li">
+                            <a class="img"><img src="${res.data[i].img}" alt=""></a>
+                            <div class="relative">
+                                <a class="cookname">
+                                    ${res.data[i].title}
+                                </a>
+                                <a class="author">
+                                    <img src="${res.data[i].author_img}" alt="">
+                                    <i>${res.data[i].author}</i>
+                                </a>
+                                <a href="" class="proicon">
+                                    <img src="./images/da84247847aebe48d9dd0fcdac88862a.png" alt="">
+                                </a>
+                                <div class="view-coll">
+                                    <span class="view">${res.data[i].look}</span>
+                                    <span class="collect">                            <span class="view">${res.data[i].collect}</span>
+        </span>
+                                </div>
+                            </div>
+                        </li>
+                            `
+                    }
+                } else if (title == 'hot' || title == 'new') {
+                    for (var i = 0; i < res.data.length; i++) {
+                        str += `
+                            <li class="menuLi">
+                                <img src="${res.data[i].img}" alt="">
+                                <div class="menuInfo">
+                                    <h4>${res.data[i].title}</h4>
+                                    <p>${res.data[i].num}</p>
+                                </div>
+                            </li>
+                        `
+                    }
+                }
+                selection.innerHTML = str
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+        getData()
+        var num;
+        var a = 1;
+        var b = 4;
+        var index = 1;
+
+
+        function getPageLength(clickpage = 1) {
+            // 分页长度渲染
+            axios.get(`http://localhost:3000/` + getpage).then(res => {
+                var pagediv = document.getElementById('pagediv')
+                var page = document.querySelectorAll('#pagediv a')
+                var str = '';
+                if (getpage == 'getpagea' || getpage == 'getpageb') {
+                    num = Math.ceil(res.data.length / 24);
+                } else if (getpage == 'getpagec' || getpage == 'getpaged') {
+                    num = Math.ceil(res.data.length / 12);
+                }
+                for (var i = a; i <= b; i++) {
+                    str += `
+                    <a href="javascript:;" class="page">${i}</a>
+                    `
+                }
+                pagediv.innerHTML = str
+                var page = document.querySelectorAll('#pagediv a')
+                page[clickpage - a].classList.add('active')
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+        getPageLength()
+
+        // page[0].classList.add('active')
+
+        function getPage() {
+            // 点击页码渲染数据
+
+            getData(event.target.innerText)
+
+            if (event.target.innerText >= 1 && event.target.innerText <= 4) {
+                b = parseInt(event.target.innerText) + 3
+            } else if (event.target.innerText > 4 && event.target.innerText <= num - 3) {
+                a = parseInt(event.target.innerText) - 3
+                b = parseInt(event.target.innerText) + 3
+            } else {
+                a = parseInt(event.target.innerText) - 3
+                b = num
+            }
+            index = event.target.innerText;
+            getPageLength(event.target.innerText)
+            if (index == 1) {
+                pre.style.display = 'none'
+                next.style.display = 'inline-block'
+            } else if (index == num) {
+                pre.style.display = 'inline-block'
+                next.style.display = 'none'
+            } else {
+                pre.style.display = 'inline-block'
+                next.style.display = 'inline-block'
+            }
+
+        }
+
+        function prepage() {
+            index--;
+            if (index >= 1 && index <= 4) {
+                a = 1
+                b = parseInt(index) + 3
+            } else if (index > 4 && index <= num - 3) {
+                a = parseInt(index) - 3
+                b = parseInt(index) + 3
+            } else if (index > num - 3 && index <= num) {
+                a = parseInt(index) - 3
+                b = num
+            } else if (index < 1) {
+                index = 1
+            }
+            if (index == 1) {
+                pre.style.display = 'none'
+            } else {
+                pre.style.display = 'inline-block'
+            }
+            next.style.display = 'inline-block'
+
+            getPageLength(index)
+            getData(index)
+        }
+
+        function nextpage() {
+            index++;
+            if (index >= 1 && index <= 4) {
+                b = parseInt(index) + 3
+            } else if (index > 4 && index <= num - 3) {
+                a = parseInt(index) - 3
+                b = parseInt(index) + 3
+            } else if (index > num - 3 && index <= num) {
+                a = parseInt(index) - 3
+                b = num
+            } else if (index >= num) {
+                index = num
+
+            }
+            if (index == num) {
+                next.style.display = 'none'
+            } else {
+                next.style.display = 'inline-block'
+            }
+            pre.style.display = 'inline-block'
+            getPageLength(index)
+            getData(index)
+        }
+
+        function endpage() {
+            index = num
+            a = parseInt(index) - 3
+            b = num
+            getPageLength(index)
+            getData(index)
+            next.style.display = 'none'
+            pre.style.display = 'inline-block'
+        }
+
+
+        function firstpage() {
+            index = 1
+            a = 1
+            b = 4
+            getPageLength(index)
+            getData(index)
+            next.style.display = 'inline-block'
+            pre.style.display = 'none'
+        }
+        var filters
+
+        function getClass() {
+            axios.get('http://localhost:3000/classify').then(res => {
+
+                var arr1 = []
+                var str = '';
+                for (var i = 0; i < res.data.length; i++) {
+                    arr1.push(res.data[i].type)
+                }
+                for (var i = 0; i < arr1.length; i++) {
+                    if (arr1.indexOf(arr1[i]) != arr1.lastIndexOf(arr1[i])) {
+                        arr1.splice(i, 1)
+                        i--
+                    }
+                }
+                filters = [];
+                for (var i = 0; i < arr1.length; i++) {
+                    filters = res.data.filter(item => item.type == arr1[i])
+                    str += `
+                        <li class="class-li">
+                        <h3 class="class-title">${arr1[i]}</h3>
+                        <div class="class-con">
+                    `
+                    for (var j = 0; j < filters.length; j++) {
+                        if (j > 20) {
+                            str += `
+                    <span class="class-span span-none">${filters[j].text}</span>
+                    `
+                        } else {
+                            str += `
+                    <span class="class-span">${filters[j].text}</span>
+                    `
+                        }
+                    }
+                    str += `</div>`
+                    if (filters.length > 20) {
+                        str += `
+                            <p>展开</p>
+                        `
+                    }
+                    str += `</li>`
+                }
+                selection.innerHTML = str
+                h2.style.display = 'none'
+                pages.style.display = 'none'
+                locat.innerText = '分类'
+
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+
+        selection.onclick = function(e) {
+            if (e.target.nodeName == 'P') {
+                e.target.classList.toggle('open')
+                for (var i = 0; i < e.target.previousElementSibling.children.length; i++) {
+                    if (e.target.className == 'open') {
+                        e.target.previousElementSibling.children[i].style.display = "block"
+                        e.target.innerHTML = '收起'
+                    } else {
+                        e.target.previousElementSibling.children[i].style = ""
+                        e.target.innerHTML = '展开'
+                    }
+                }
+            }
+        }
+
+        function getFood() {
+            axios.get("http://localhost:3000/food").then(res => {
+                var arr1 = []
+                var str = ""
+                for (var i = 0; i < res.data.length; i++) {
+                    arr1.push(res.data[i].type)
+                }
+                for (var i = 0; i < arr1.length; i++) {
+                    if (arr1.indexOf(arr1[i]) != arr1.lastIndexOf(arr1[i])) {
+                        arr1.splice(i, 1)
+                        i--
+                    }
+                }
+                filters = [];
+                for (var i = 0; i < arr1.length; i++) {
+                    filters = res.data.filter(item => item.type == arr1[i])
+                    if (arr1[i] == "猪") {
+                        str += `<li><h2 class="food-title">肉类(全部)</h2></li>`
+                    }
+                    if (arr1[i] == "鲜果") {
+                        str += `<li><h2 class="food-title">水果、花茶、坚果(全部)</h2></li>`
+                    }
+                    if (arr1[i] == "蔬菜类") {
+                        str += `<li><h2 class="food-title">蔬菜、菌藻、药食(全部)</h2></li>`
+                    }
+                    if (arr1[i] == "虾") {
+                        str += `<li><h2 class="food-title">鱼虾蟹贝等水产(全部)</h2></li>`
+                    }
+                    if (arr1[i] == "米") {
+                        str += `<li><h2 class="food-title">谷类(全部)</h2></li>`
+                    }
+                    if (arr1[i] == "乳及其制品") {
+                        str += `<li><h2 class="food-title">豆乳蛋类及制品(全部)</h2></li>`
+                    }
+                    if (arr1[i] == "香辛料") {
+                        str += `<li><h2 class="food-title">调味品(全部)</h2></li>`
+                    }
+                    str += `
+                        <li class="food-li">
+                        <h4 class="food-title2">${arr1[i]}</h4>
+                        <div class="food-con">
+                    `
+                    for (var j = 0; j < filters.length; j++) {
+                        str += `
+                        <div class="food-div">
+                            <img src="${filters[j].img}">
+                            <h5>${filters[j].text}</h5>
+                        </div>
+                        `
+                    }
+                    str += `</div></li>`
+                }
+                selection.innerHTML = str
+                h2.style.display = 'none'
+                pages.style.display = 'none'
+                locat.innerText = '食材'
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+
+        tab.forEach((item, index) => {
+            item.onclick = function() {
+                for (var i = 0; i < tab.length; i++) {
+                    tab[i].classList.remove('active')
+                }
+                item.classList.add('active')
+            }
+        })
+    </script>
+</body>
+
+</html>
